@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "開発サーバー起動",
+      "type": "shell",
+      "command": "npm run dev",
+      "group": "build",
+      "isBackground": true,
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "プロダクションビルド & アップロード",
+      "type": "shell",
+      "command": "npm run build && xrift upload world",
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": ["$tsc"]
+    },
+    {
+        "label": "TypeScript型チェック",
+        "type": "shell",
+        "command": "npm run typecheck",
+        "group": "test",
+        "isBackground": false,
+        "problemMatcher": ["$tsc"],
+    },
+    {
+      "label": "XRift CLI upgrade",
+      "type": "shell",
+      "command": "npm upgrade -g @xrift/cli",
+      "group": "test",
+      "isBackground": true,
+      "problemMatcher": ["$tsc"]
+    },
+  ]
+}
