@@ -44,7 +44,7 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
 
             {/* 箱 */}
             <RigidBody type="fixed" colliders="hull" restitution={0} friction={0}>
-                <mesh position={[0 * scale, 1 * scale, 0 * scale]} castShadow>
+                <mesh position={[0 * scale, 1 * scale, -10 * scale]} castShadow>
                 <boxGeometry args={[2 * scale, 2 * scale, 2 * scale]} />
                 <meshLambertMaterial color={COLORS.decorations.box} />
                 </mesh>
