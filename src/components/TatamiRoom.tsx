@@ -21,8 +21,9 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
   const roomWidth = 8 * scale
   const roomDepth = 8 * scale
   const wallHeight = 3 * scale
-  const tatamiWidth = 1.8 * scale
-  const tatamiDepth = 0.9 * scale
+  // 部屋を4x4の畳で埋めるサイズ
+  const tatamiWidth = 2 * scale
+  const tatamiDepth = 1 * scale
 
   // 畳を敷き詰める
   const tatamis: [number, number, boolean][] = []

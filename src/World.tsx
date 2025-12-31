@@ -1,6 +1,6 @@
 import { RigidBody } from '@react-three/rapier'
 import { COLORS, WORLD_CONFIG } from './constants'
-import { Skybox, SpawnPoint } from '@xrift/world-components'
+import { SpawnPoint } from '@xrift/world-components'
 import {
   Kotatsu,
   SakeSet,
@@ -12,6 +12,7 @@ import {
   NewYearClock,
   Stars,
   Torou,
+  DynamicSkybox,
 } from './components'
 import { MirrorScreenButton } from './components/Mirrro-Screen'
 
@@ -35,8 +36,8 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
       {/* プレイヤーのスポーン地点 */}
       <SpawnPoint position={[0, 0, 12]} yaw={0} />
 
-      {/* 夜空 */}
-      <Skybox topColor={0x0a0a20} bottomColor={0x1a1a3a} />
+      {/* 時刻に応じて変化する空 */}
+      <DynamicSkybox />
 
       {/* 星空 */}
       <Stars count={200} radius={200} />
@@ -99,13 +100,13 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
       <KagamiMochi position={[-3, 0, -3]} scale={1.2} />
 
       {/* 提灯 */}
-      <Lantern position={[3, 2.5, 0]} scale={1.0} />
-      <Lantern position={[-3, 2.5, 0]} scale={1.0} />
-      <Lantern position={[0, 2.8, -3.5]} scale={1.2} />
+      <Lantern position={[2.55, 2.5, -2.05]} scale={1.0} />
+      <Lantern position={[-2.36, 2.5, -2.02]} scale={1.0} />
+      {/* <Lantern position={[0, 2.8, -3.5]} scale={1.2} /> */}
 
       {/* 縁側の提灯 */}
-      <Lantern position={[2.5, 2.2, 5]} scale={0.8} />
-      <Lantern position={[-2.5, 2.2, 5]} scale={0.8} />
+      <Lantern position={[2.48, 2.2, 2.35]} scale={0.8} />
+      <Lantern position={[-2.48, 2.2, 2.53]} scale={0.8} />
 
       {/* 年越しカウントダウン時計 */}
       <NewYearClock position={[0, 2.2, -3.9]} scale={1.0} />
