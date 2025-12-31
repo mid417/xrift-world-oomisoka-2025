@@ -33,5 +33,13 @@
       "isBackground": true,
       "problemMatcher": ["$tsc"]
     },
+    {
+      "label": "XRift World Component upgrade",
+      "type": "shell",
+      "command": "npm install @xrift/world-components@latest",
+      "group": "test",
+      "isBackground": true,
+      "problemMatcher": ["$tsc"]
+    }
   ]
 }
