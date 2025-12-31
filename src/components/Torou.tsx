@@ -87,12 +87,12 @@ export const Torou: React.FC<TorouProps> = ({
       </RigidBody>
 
       {/* 内部の光源 */}
-      <pointLight
+      {/* <pointLight
         position={[0, 1.35, 0]}
         color={lightColor}
         intensity={2}
         distance={8}
-      />
+      /> */}
     </group>
   )
 }

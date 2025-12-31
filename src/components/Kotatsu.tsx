@@ -69,12 +69,12 @@ export const Kotatsu: React.FC<KotatsuProps> = ({
       ))}
 
       {/* こたつの中の暖かい光 */}
-      <pointLight
+      {/* <pointLight
         position={[0, legHeight / 2, 0]}
         color="#FF6B35"
         intensity={2}
         distance={3}
-      />
+      /> */}
     </group>
   )
 }

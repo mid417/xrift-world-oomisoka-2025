@@ -104,7 +104,7 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
 
       {/* 縁側（手前側） */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh position={[0, -0.02, roomDepth / 2 + 1]} receiveShadow>
+        <mesh position={[0, -0.2, roomDepth / 2 + 1]} receiveShadow>
           <boxGeometry args={[roomWidth, 0.1, 2]} />
           <meshStandardMaterial color={COLORS.engawa} />
         </mesh>

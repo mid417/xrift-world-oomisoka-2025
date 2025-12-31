@@ -18,15 +18,22 @@ export const NewYearClock: React.FC<NewYearClockProps> = ({
 }) => {
   const groupRef = useRef<Group>(null)
   const textRef = useRef<any>(null)
+  const dateRef = useRef<any>(null)
 
   // 現在時刻を更新
   useFrame(() => {
+    const now = new Date()
     if (textRef.current) {
-      const now = new Date()
       const hours = now.getHours().toString().padStart(2, '0')
       const minutes = now.getMinutes().toString().padStart(2, '0')
       const seconds = now.getSeconds().toString().padStart(2, '0')
       textRef.current.text = `${hours}:${minutes}:${seconds}`
+    }
+    if (dateRef.current) {
+      const year = now.getFullYear()
+      const month = (now.getMonth() + 1).toString().padStart(2, '0')
+      const day = now.getDate().toString().padStart(2, '0')
+      dateRef.current.text = `${year}年${month}月${day}日`
     }
   })
 
@@ -56,15 +63,16 @@ export const NewYearClock: React.FC<NewYearClockProps> = ({
         23:59:59
       </Text>
 
-      {/* 「2025年大晦日」ラベル */}
+      {/* 日付ラベル */}
       <Text
+        ref={dateRef}
         position={[0, 0.4, 0.02]}
         fontSize={0.1}
         color="#FFD700"
         anchorX="center"
         anchorY="middle"
       >
-        2025年 大晦日
+        2025年12月31日
       </Text>
     </group>
   )

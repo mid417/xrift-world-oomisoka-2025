@@ -49,13 +49,7 @@ export const Lantern: React.FC<LanternProps> = ({
         <meshStandardMaterial color={COLORS.lantern.frame} />
       </mesh>
 
-      {/* 内部の光源 */}
-      <pointLight
-        position={[0, 0.25, 0]}
-        color={COLORS.lantern.light}
-        intensity={3}
-        distance={8}
-      />
+      {/* 内部の光源は使わずエミッシブだけで表現し負荷を抑える */}
     </group>
   )
 }

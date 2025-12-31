@@ -1,8 +1,8 @@
 {
   "world": {
     "distDir": "./dist",
-    "title": "大晦日をゆっくり過ごすワールド",
-    "description": "のんびりしましょう",
+    "title": "ゆっくり過ごせる場所",
+    "description": "年末年始はのんびり過ごしましょう",
     "thumbnailPath": "thumbnail.png",
     "buildCommand": "npm run build",
     "ignore": [
