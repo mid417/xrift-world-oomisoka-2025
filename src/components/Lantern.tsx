@@ -1,6 +1,5 @@
 import { useRef } from 'react'
-import { Group, PointLight } from 'three'
-import { useFrame } from '@react-three/fiber'
+import { Group } from 'three'
 import { COLORS } from '../constants'
 
 interface LanternProps {
@@ -17,15 +16,6 @@ export const Lantern: React.FC<LanternProps> = ({
   scale = 1,
 }) => {
   const groupRef = useRef<Group>(null)
-  const lightRef = useRef<PointLight>(null)
-
-  // 光のゆらぎアニメーション
-  useFrame((state) => {
-    if (lightRef.current) {
-      const time = state.clock.elapsedTime
-      lightRef.current.intensity = 3 + Math.sin(time * 2) * 0.5
-    }
-  })
 
   return (
     <group ref={groupRef} position={position} scale={scale}>
@@ -61,12 +51,10 @@ export const Lantern: React.FC<LanternProps> = ({
 
       {/* 内部の光源 */}
       <pointLight
-        ref={lightRef}
         position={[0, 0.25, 0]}
         color={COLORS.lantern.light}
         intensity={3}
         distance={8}
-        castShadow
       />
     </group>
   )

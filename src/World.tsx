@@ -11,6 +11,7 @@ import {
   Otsumami,
   NewYearClock,
   Stars,
+  Torou,
 } from './components'
 import { MirrorScreenButton } from './components/Mirrro-Screen'
 
@@ -32,13 +33,13 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
   return (
     <group position={position} scale={scale}>
       {/* プレイヤーのスポーン地点 */}
-      <SpawnPoint position={[0, 0, 12]} yaw={0} />      
+      <SpawnPoint position={[0, 0, 12]} yaw={0} />
 
       {/* 夜空 */}
       <Skybox topColor={0x0a0a20} bottomColor={0x1a1a3a} />
 
       {/* 星空 */}
-      <Stars count={800} radius={60} />
+      <Stars count={200} radius={200} />
 
       {/* 照明設定 - 暖かい雰囲気 */}
       <ambientLight intensity={0.15} color="#FFE4C4" />
@@ -47,8 +48,8 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
         intensity={0.3}
         color="#B0C4DE"
         castShadow
-        shadow-mapSize-width={512}
-        shadow-mapSize-height={512}
+        shadow-mapSize-width={32}
+        shadow-mapSize-height={32}
         shadow-camera-far={50}
         shadow-camera-left={-15}
         shadow-camera-right={15}
@@ -117,13 +118,20 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
         distance={6}
       />
 
-      {/* 東の壁のミラー/スクリーン */}
+      {/* 西の壁のミラー/スクリーン */}
       <MirrorScreenButton
-        position={[3.8, 1.33, 0]}
-        rotation={[0, -Math.PI / 2, 0]}
-        scale={0.6}
+        position={[-3.8, 1.5, 0]}
+        rotation={[0, Math.PI / 2, 0]}
+        scale={0.8}
       />
+
+      {/* 四隅の灯篭 */}
+      <Torou position={[12, 0, 12]} scale={1.2} />
+      <Torou position={[-12, 0, 12]} scale={1.2} />
+      <Torou position={[12, 0, 0]} scale={1.2} />
+      <Torou position={[-12, 0, 0]} scale={1.2} />
+      <Torou position={[12, 0, -12]} scale={1.2} />
+      <Torou position={[-12, 0, -12]} scale={1.2} />
     </group>
   )
 }
-
