@@ -35,7 +35,7 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
   return (
     <group position={position} scale={scale}>
       {/* プレイヤーのスポーン地点 */}
-      <SpawnPoint position={[0, 0.2, 12]} yaw={0} />
+      <SpawnPoint position={[0, 0.1, 12.5]} yaw={0} />
       {/* 入口の案内看板 */}
       <EntranceSign position={[0, 0.04, 10]} scale={1.05} />
 
@@ -65,7 +65,7 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
 
       {/* 地面（雪景色） */}
       <RigidBody type="fixed" colliders="cuboid" restitution={0} friction={0.5}>
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.1, 0]} receiveShadow>
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.1, 0]}>
           <planeGeometry args={[worldSize, worldSize]} />
           <meshStandardMaterial color={COLORS.ground} />
         </mesh>
@@ -98,8 +98,8 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
       {/* 提灯 */}
       <Lantern position={[2.36, 3.0, -2.0]} scale={1.0} />
       <Lantern position={[-2.36, 3.0, -2.0]} scale={1.0} />
-      <Lantern position={[2.36, 2.7, 2.0]} scale={0.8} />
-      <Lantern position={[-2.36, 2.7, 2.0]} scale={0.8} />
+      <Lantern position={[2.36, 3.0, 2.0]} scale={0.8} />
+      <Lantern position={[-2.36, 3.0, 2.0]} scale={0.8} />
 
       {/* 年越しカウントダウン時計 */}
       <NewYearClock position={[0, 2.7, -3.9]} scale={1.0} />
@@ -120,12 +120,12 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
       /> */}
 
       {/* 灯篭 */}
-      <Torou position={[12, 0, 12]} scale={1.2} />
-      <Torou position={[-12, 0, 12]} scale={1.2} />
-      <Torou position={[12, 0, 0]} scale={1.2} />
-      <Torou position={[-12, 0, 0]} scale={1.2} />
-      <Torou position={[12, 0, -12]} scale={1.2} />
-      <Torou position={[-12, 0, -12]} scale={1.2} />
+      <Torou position={[  8, 0,  12]} scale={1.2} />
+      <Torou position={[ -8, 0,  12]} scale={1.2} />
+      <Torou position={[ 12, 0,   0]} scale={1.2} />
+      <Torou position={[-12, 0,   0]} scale={1.2} />
+      <Torou position={[  8, 0, -12]} scale={1.2} />
+      <Torou position={[ -8, 0, -12]} scale={1.2} />
     </group>
   )
 }
