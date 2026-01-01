@@ -45,7 +45,7 @@ export const COLORS = {
     bottom: '#1a1a3a',
   },
   // 地面（雪）
-  ground: '#F5F5F5',
+  ground: '#b4b4b4',
   // 縁側
   engawa: '#7b5b31',
 } as const
