@@ -34,6 +34,42 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
     }
   }
 
+  // こたつ布団が床に当たらないよう中央に穴を開けた床コライダーを生成
+  const kotatsuTableSize = 2 * scale
+  const kotatsuTableHeight = 0.4 * scale
+  const kotatsuLegHeight = 0.3 * scale
+  const kotatsuBlanketThickness = 0.05 * scale
+  const kotatsuBlanketTopY =
+    kotatsuLegHeight +
+    kotatsuBlanketThickness +
+    kotatsuTableHeight / 2 -
+    kotatsuTableHeight * 0.05 -
+    kotatsuBlanketThickness / 2
+  const kotatsuBlanketDrop = kotatsuBlanketTopY
+  const kotatsuBlanketSlopeTan = Math.tan(Math.PI / 6) // 30deg
+  const kotatsuBottomHalf =
+    kotatsuTableSize / 2 + kotatsuBlanketDrop / kotatsuBlanketSlopeTan
+  const holeMargin = 0.2 * scale
+  const holeHalfX = Math.min(roomWidth / 2, kotatsuBottomHalf + holeMargin)
+  const holeHalfZ = Math.min(roomDepth / 2, kotatsuBottomHalf + holeMargin)
+  const holeWidth = holeHalfX * 2
+  const holeDepth = holeHalfZ * 2
+  const floorThickness = 0.1
+  const floorY = -floorThickness / 2
+
+  const frameParts: Array<{ position: [number, number, number]; size: [number, number, number] }> = []
+  const sideWidth = (roomWidth - holeWidth) / 2
+  const sideDepth = (roomDepth - holeDepth) / 2
+
+  if (sideWidth > 0) {
+    frameParts.push({ position: [-(holeHalfX + sideWidth / 2), floorY, 0], size: [sideWidth, floorThickness, roomDepth] })
+    frameParts.push({ position: [holeHalfX + sideWidth / 2, floorY, 0], size: [sideWidth, floorThickness, roomDepth] })
+  }
+  if (sideDepth > 0) {
+    frameParts.push({ position: [0, floorY, -(holeHalfZ + sideDepth / 2)], size: [holeWidth, floorThickness, sideDepth] })
+    frameParts.push({ position: [0, floorY, holeHalfZ + sideDepth / 2], size: [holeWidth, floorThickness, sideDepth] })
+  }
+
   return (
     <group ref={groupRef} position={position}>
       {/* 畳 */}
@@ -41,32 +77,34 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
         <group key={index} position={[x, 0, z]} rotation={[0, rotate ? Math.PI / 2 : 0, 0]}>
           {/* 畳本体 */}
           <mesh position={[0, 0.02, 0]} receiveShadow>
-            <boxGeometry args={[tatamiWidth - 0.02, 0.04, tatamiDepth * 2 - 0.02]} />
+            <boxGeometry args={[tatamiWidth - 0.005, 0.04, tatamiDepth * 2 - 0.005]} />
             <meshStandardMaterial color={COLORS.tatami} />
           </mesh>
           {/* 畳の縁 */}
-          <mesh position={[0, 0.025, tatamiDepth - 0.03]} receiveShadow>
+          {/* <mesh position={[0, 0.025, tatamiDepth - 0.03]} receiveShadow>
             <boxGeometry args={[tatamiWidth - 0.02, 0.05, 0.06]} />
             <meshStandardMaterial color={COLORS.tatamiEdge} />
           </mesh>
           <mesh position={[0, 0.025, -tatamiDepth + 0.03]} receiveShadow>
             <boxGeometry args={[tatamiWidth - 0.02, 0.05, 0.06]} />
             <meshStandardMaterial color={COLORS.tatamiEdge} />
-          </mesh>
+          </mesh> */}
         </group>
       ))}
 
       {/* 床の当たり判定 */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh position={[0, -0.05, 0]} receiveShadow>
-          <boxGeometry args={[roomWidth, 0.1, roomDepth]} />
-          <meshStandardMaterial color={COLORS.wood} visible={false} />
-        </mesh>
+        {frameParts.map((part, idx) => (
+          <mesh key={idx} position={part.position}>
+            <boxGeometry args={part.size} />
+            <meshStandardMaterial color={COLORS.wood} visible={false} />
+          </mesh>
+        ))}
       </RigidBody>
 
       {/* 奥の壁（障子風） */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh position={[0, wallHeight / 2, -roomDepth / 2]} castShadow>
+        <mesh position={[0, wallHeight / 2, -roomDepth / 2]}>
           <boxGeometry args={[roomWidth, wallHeight, 0.1]} />
           <meshStandardMaterial color="#F5F5DC" />
         </mesh>
@@ -88,7 +126,7 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
 
       {/* 左の壁 */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh position={[-roomWidth / 2, wallHeight / 2, 0]} castShadow>
+        <mesh position={[-roomWidth / 2, wallHeight / 2, 0]}>
           <boxGeometry args={[0.1, wallHeight, roomDepth]} />
           <meshStandardMaterial color={COLORS.woodLight} />
         </mesh>
@@ -96,7 +134,7 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
 
       {/* 右の壁 */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh position={[roomWidth / 2, wallHeight / 2, 0]} castShadow>
+        <mesh position={[roomWidth / 2, wallHeight / 2, 0]}>
           <boxGeometry args={[0.1, wallHeight, roomDepth]} />
           <meshStandardMaterial color={COLORS.woodLight} />
         </mesh>
@@ -104,7 +142,7 @@ export const TatamiRoom: React.FC<TatamiRoomProps> = ({
 
       {/* 縁側（手前側） */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh position={[0, -0.2, roomDepth / 2 + 1]} receiveShadow>
+        <mesh position={[0, -0.1, roomDepth / 2 + 1]}>
           <boxGeometry args={[roomWidth, 0.1, 2]} />
           <meshStandardMaterial color={COLORS.engawa} />
         </mesh>

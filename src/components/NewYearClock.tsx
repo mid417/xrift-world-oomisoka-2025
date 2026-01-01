@@ -40,7 +40,7 @@ export const NewYearClock: React.FC<NewYearClockProps> = ({
   return (
     <group ref={groupRef} position={position} scale={scale}>
       {/* 時計の枠 */}
-      <mesh position={[0, 0, -0.05]} castShadow>
+      <mesh position={[0, 0, -0.05]}>
         <boxGeometry args={[1.4, 0.6, 0.1]} />
         <meshStandardMaterial color="#8B0000" />
       </mesh>

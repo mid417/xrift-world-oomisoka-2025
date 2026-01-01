@@ -20,7 +20,7 @@ export const KagamiMochi: React.FC<KagamiMochiProps> = ({
   return (
     <group ref={groupRef} position={position} scale={scale}>
       {/* 台座（三方） */}
-      <mesh position={[0, 0.05, 0]} castShadow>
+      <mesh position={[0, 0.05, 0]}>
         <boxGeometry args={[0.3, 0.1, 0.3]} />
         <meshStandardMaterial color={COLORS.kagamiMochi.base} />
       </mesh>
@@ -35,25 +35,25 @@ export const KagamiMochi: React.FC<KagamiMochiProps> = ({
       </mesh>
 
       {/* 下の餅 */}
-      <mesh position={[0, 0.18, 0]} castShadow>
+      <mesh position={[0, 0.18, 0]}>
         <cylinderGeometry args={[0.12, 0.14, 0.08, 32]} />
         <meshStandardMaterial color={COLORS.kagamiMochi.mochi} />
       </mesh>
 
       {/* 上の餅 */}
-      <mesh position={[0, 0.27, 0]} castShadow>
+      <mesh position={[0, 0.27, 0]}>
         <cylinderGeometry args={[0.09, 0.11, 0.07, 32]} />
         <meshStandardMaterial color={COLORS.kagamiMochi.mochi} />
       </mesh>
 
       {/* みかん（橙） */}
-      <mesh position={[0, 0.36, 0]} castShadow>
+      <mesh position={[0, 0.36, 0]}>
         <sphereGeometry args={[0.05, 16, 16]} />
         <meshStandardMaterial color={COLORS.kagamiMochi.orange} />
       </mesh>
 
       {/* みかんのヘタ */}
-      <mesh position={[0, 0.41, 0]} castShadow>
+      <mesh position={[0, 0.41, 0]}>
         <cylinderGeometry args={[0.01, 0.015, 0.02, 8]} />
         <meshStandardMaterial color={COLORS.kagamiMochi.leaf} />
       </mesh>

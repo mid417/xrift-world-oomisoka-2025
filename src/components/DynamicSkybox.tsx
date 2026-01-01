@@ -12,27 +12,27 @@ const SKY_COLORS: Array<{
 }> = [
   // 深夜 (0-4時)
   { hour: 0, topColor: 0x0a0a20, bottomColor: 0x1a1a3a },
-  { hour: 4, topColor: 0x0a0a20, bottomColor: 0x1a1a3a },
+  { hour: 5, topColor: 0x0a0a20, bottomColor: 0x1a1a3a },
   // 薄明 (4-5時)
-  { hour: 5, topColor: 0x1a1a40, bottomColor: 0x2a2a5a },
+  { hour: 6, topColor: 0x1a1a40, bottomColor: 0x2a2a5a },
   // 日の出前 (5-6時)
-  { hour: 6, topColor: 0x4a3a60, bottomColor: 0x7a5a80 },
+  { hour: 7, topColor: 0x4a3a60, bottomColor: 0x7a5a80 },
   // 日の出 (6-7時)
-  { hour: 7, topColor: 0xff9966, bottomColor: 0xffb088 },
+  { hour: 8, topColor: 0xff9966, bottomColor: 0xffb088 },
   // 朝 (7-9時)
-  { hour: 8, topColor: 0x87ceeb, bottomColor: 0xb0e0e6 },
-  { hour: 9, topColor: 0x6ab0de, bottomColor: 0x9cd0e8 },
+  { hour: 9, topColor: 0x87ceeb, bottomColor: 0xb0e0e6 },
+  { hour: 10, topColor: 0x6ab0de, bottomColor: 0x9cd0e8 },
   // 日中 (9-16時)
-  { hour: 10, topColor: 0x4a90d9, bottomColor: 0x87ceeb },
-  { hour: 16, topColor: 0x4a90d9, bottomColor: 0x87ceeb },
+  { hour: 11, topColor: 0x4a90d9, bottomColor: 0x87ceeb },
+  { hour: 15, topColor: 0x4a90d9, bottomColor: 0x87ceeb },
   // 夕方 (16-17時)
-  { hour: 17, topColor: 0xff7e5f, bottomColor: 0xfeb47b },
+  { hour: 16, topColor: 0xff7e5f, bottomColor: 0xfeb47b },
   // 日没 (17-18時)
-  { hour: 18, topColor: 0xff5f6d, bottomColor: 0xd45a6a },
+  { hour: 17, topColor: 0xff5f6d, bottomColor: 0xd45a6a },
   // 薄暮 (18-19時)
-  { hour: 19, topColor: 0x3a3a60, bottomColor: 0x5a4a7a },
+  { hour: 18, topColor: 0x3a3a60, bottomColor: 0x5a4a7a },
   // 夜 (19-24時)
-  { hour: 20, topColor: 0x1a1a30, bottomColor: 0x2a2a4a },
+  { hour: 19, topColor: 0x1a1a30, bottomColor: 0x2a2a4a },
   { hour: 24, topColor: 0x0a0a20, bottomColor: 0x1a1a3a },
 ]
 

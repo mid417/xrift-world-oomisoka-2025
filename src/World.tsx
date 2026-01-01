@@ -13,6 +13,7 @@ import {
   Stars,
   Torou,
   DynamicSkybox,
+  EntranceSign,
 } from './components'
 import { MirrorScreenButton } from './components/Mirrro-Screen'
 
@@ -35,6 +36,8 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
     <group position={position} scale={scale}>
       {/* プレイヤーのスポーン地点 */}
       <SpawnPoint position={[0, 0.2, 12]} yaw={0} />
+      {/* 入口の案内看板 */}
+      <EntranceSign position={[0, 0.04, 10]} scale={1.05} />
 
       {/* 時刻に応じて変化する空 */}
       <DynamicSkybox />
@@ -72,13 +75,13 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
       <TatamiRoom position={[0, 0.5, 0]} scale={scale} />
 
       {/* こたつ */}
-      <Kotatsu position={[0, 0.5, 0]} scale={scale} />
+      <Kotatsu position={[0, 0.52, 0]} scale={scale} />
 
       {/* 座布団（こたつの周り） */}
-      <Zabuton position={[0, 0.54, 1.5]} color={zabutonColors[0]} />
-      <Zabuton position={[0, 0.54, -1.5]} color={zabutonColors[1]} rotation={[0, Math.PI, 0]} />
-      <Zabuton position={[1.5, 0.54, 0]} color={zabutonColors[2]} rotation={[0, -Math.PI / 2, 0]} />
-      <Zabuton position={[-1.5, 0.54, 0]} color={zabutonColors[3]} rotation={[0, Math.PI / 2, 0]} />
+      <Zabuton position={[0, 0.55, 1.8]} color={zabutonColors[0]} />
+      <Zabuton position={[0, 0.55, -1.8]} color={zabutonColors[1]} rotation={[0, Math.PI, 0]} />
+      <Zabuton position={[1.8, 0.55, 0]} color={zabutonColors[2]} rotation={[0, -Math.PI / 2, 0]} />
+      <Zabuton position={[-1.8, 0.55, 0]} color={zabutonColors[3]} rotation={[0, Math.PI / 2, 0]} />
 
       {/* こたつの上のお酒セット */}
       <SakeSet position={[0.3, 1.05, 0.2]} scale={1.2} />
@@ -93,9 +96,9 @@ export const World: React.FC<WorldProps> = ({ position = [0, 0, 0], scale = 1 })
       <KagamiMochi position={[-3, 0.5, -3]} scale={1.2} />
 
       {/* 提灯 */}
-      <Lantern position={[ 2.36, 3.0, -2.0]} scale={1.0} />
+      <Lantern position={[2.36, 3.0, -2.0]} scale={1.0} />
       <Lantern position={[-2.36, 3.0, -2.0]} scale={1.0} />
-      <Lantern position={[ 2.36, 2.7, 2.0]} scale={0.8} />
+      <Lantern position={[2.36, 2.7, 2.0]} scale={0.8} />
       <Lantern position={[-2.36, 2.7, 2.0]} scale={0.8} />
 
       {/* 年越しカウントダウン時計 */}

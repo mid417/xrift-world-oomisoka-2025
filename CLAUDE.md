@@ -8,6 +8,10 @@
 
 ## 重要な制約事項
 
+### 0. 回答について
+
+- 回答は日本語でおこなってください。
+
 ### 1. アセット読み込みは必ず `@xrift/world-components` の `useXRift` を使用
 
 **理由**: ワールドはCDNにアップロードされ、フロントエンド側から動的にロードされるため、アセットのベースURLが実行時に決まります。
@@ -243,7 +247,7 @@ const model = useGLTF(`${baseUrl}/models/robot.glb`) // 余分な/
 ## ルール
 
 - コードを修正した場合、必ず `npm run typecheck` を実行して型エラーがないことを確認し、エラーがあった場合は解決してください。
-
+- 外部のリソース（特にフォント）は利用しないでください。
 
 ---
 
@@ -255,7 +259,7 @@ const model = useGLTF(`${baseUrl}/models/robot.glb`) // 余分な/
 - `vite.config.ts`: ビルド設定
 - `package.json`: プロジェクト情報
 
-詳細なカスタマイズ方法は [TEMPLATE.md](./TEMPLATE.md) を参照してください。
+詳細なカスタマイズ方法は [TEMPLATE.md](../TEMPLATE.md) を参照してください。
 
 #### アセット（GLTFモデル、テクスチャ）の読み込み
 

@@ -19,7 +19,7 @@ export const Otsumami: React.FC<OtsumamiProps> = ({
   return (
     <group ref={groupRef} position={position} scale={scale}>
       {/* 小皿 */}
-      <mesh position={[0, 0.01, 0]} receiveShadow>
+      <mesh position={[0, 0.01, 0]} >
         <cylinderGeometry args={[0.12, 0.1, 0.02, 32]} />
         <meshStandardMaterial color="#FFFFF0" />
       </mesh>
@@ -32,7 +32,7 @@ export const Otsumami: React.FC<OtsumamiProps> = ({
         [0.02, 0.03, -0.03],
         [-0.02, 0.03, -0.02],
       ].map((pos, i) => (
-        <mesh key={i} position={pos as [number, number, number]} castShadow>
+        <mesh key={i} position={pos as [number, number, number]} >
           <capsuleGeometry args={[0.015, 0.03, 4, 8]} />
           <meshStandardMaterial color="#228B22" />
         </mesh>
@@ -40,7 +40,7 @@ export const Otsumami: React.FC<OtsumamiProps> = ({
 
       {/* 別の小皿（おせんべい風） */}
       <group position={[0.3, 0, 0]}>
-        <mesh position={[0, 0.01, 0]} receiveShadow>
+        <mesh position={[0, 0.01, 0]} >
           <cylinderGeometry args={[0.1, 0.08, 0.02, 32]} />
           <meshStandardMaterial color="#DEB887" />
         </mesh>
@@ -49,8 +49,7 @@ export const Otsumami: React.FC<OtsumamiProps> = ({
           <mesh
             key={i}
             position={[0, 0.04, 0]}
-            rotation={[0.2, rot * Math.PI, 0.1 * i]}
-            castShadow
+            rotation={[0.2, rot * Math.PI, 0.1 * i]}            
           >
             <cylinderGeometry args={[0.04, 0.04, 0.01, 16]} />
             <meshStandardMaterial color="#D2691E" />

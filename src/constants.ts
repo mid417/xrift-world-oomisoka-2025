@@ -15,7 +15,7 @@ export const COLORS = {
   woodLight: '#DEB887',
   // こたつ
   kotatsu: {
-    table: '#8B0000',
+    table: '#512c09',
     blanket: '#DC143C',
     legs: '#5C3317',
   },
@@ -47,5 +47,5 @@ export const COLORS = {
   // 地面（雪）
   ground: '#F5F5F5',
   // 縁側
-  engawa: '#DEB887',
+  engawa: '#7b5b31',
 } as const

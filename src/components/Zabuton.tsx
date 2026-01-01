@@ -1,4 +1,3 @@
-import { RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
 import { Mesh } from 'three'
 
@@ -20,17 +19,15 @@ export const Zabuton: React.FC<ZabutonProps> = ({
   const meshRef = useRef<Mesh>(null)
 
   return (
-    <RigidBody type="fixed" colliders="cuboid">
-      <mesh
-        ref={meshRef}
-        position={position}
-        rotation={rotation}
-        castShadow
-        receiveShadow
-      >
-        <boxGeometry args={[0.6, 0.08, 0.6]} />
-        <meshStandardMaterial color={color} />
-      </mesh>
-    </RigidBody>
+    <mesh
+      ref={meshRef}
+      position={position}
+      rotation={rotation}
+      castShadow
+      receiveShadow
+    >
+      <boxGeometry args={[0.6, 0.08, 0.6]} />
+      <meshStandardMaterial color={color} />
+    </mesh>
   )
 }

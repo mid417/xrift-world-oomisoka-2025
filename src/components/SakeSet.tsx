@@ -22,17 +22,17 @@ export const SakeSet: React.FC<SakeSetProps> = ({
       {/* 徳利（とっくり） */}
       <group position={[0, 0, 0]}>
         {/* 本体 */}
-        <mesh position={[0, 0.15, 0]} castShadow>
+        <mesh position={[0, 0.15, 0]} >
           <cylinderGeometry args={[0.06, 0.08, 0.2, 16]} />
           <meshStandardMaterial color={COLORS.sake.bottle} />
         </mesh>
         {/* 首 */}
-        <mesh position={[0, 0.28, 0]} castShadow>
+        <mesh position={[0, 0.28, 0]} >
           <cylinderGeometry args={[0.03, 0.06, 0.06, 16]} />
           <meshStandardMaterial color={COLORS.sake.bottle} />
         </mesh>
         {/* ラベル */}
-        <mesh position={[0, 0.15, 0.065]} castShadow>
+        <mesh position={[0, 0.15, 0.065]} >
           <boxGeometry args={[0.06, 0.1, 0.01]} />
           <meshStandardMaterial color={COLORS.sake.label} />
         </mesh>
@@ -40,7 +40,7 @@ export const SakeSet: React.FC<SakeSetProps> = ({
 
       {/* おちょこ 1 */}
       <group position={[0.15, 0, 0.1]}>
-        <mesh position={[0, 0.025, 0]} castShadow>
+        <mesh position={[0, 0.025, 0]} >
           <cylinderGeometry args={[0.035, 0.025, 0.05, 16]} />
           <meshStandardMaterial color={COLORS.sake.cup} />
         </mesh>
@@ -57,7 +57,7 @@ export const SakeSet: React.FC<SakeSetProps> = ({
 
       {/* おちょこ 2 */}
       <group position={[-0.15, 0, 0.1]}>
-        <mesh position={[0, 0.025, 0]} castShadow>
+        <mesh position={[0, 0.025, 0]} >
           <cylinderGeometry args={[0.035, 0.025, 0.05, 16]} />
           <meshStandardMaterial color={COLORS.sake.cup} />
         </mesh>
@@ -74,7 +74,7 @@ export const SakeSet: React.FC<SakeSetProps> = ({
 
       {/* おちょこ 3 */}
       <group position={[0, 0, 0.2]}>
-        <mesh position={[0, 0.025, 0]} castShadow>
+        <mesh position={[0, 0.025, 0]} >
           <cylinderGeometry args={[0.035, 0.025, 0.05, 16]} />
           <meshStandardMaterial color={COLORS.sake.cup} />
         </mesh>

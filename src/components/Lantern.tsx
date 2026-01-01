@@ -26,13 +26,13 @@ export const Lantern: React.FC<LanternProps> = ({
       </mesh>
 
       {/* 上部の枠 */}
-      <mesh position={[0, 0.45, 0]} castShadow>
+      <mesh position={[0, 0.45, 0]}>
         <cylinderGeometry args={[0.08, 0.1, 0.05, 16]} />
         <meshStandardMaterial color={COLORS.lantern.frame} />
       </mesh>
 
       {/* 提灯本体 */}
-      <mesh position={[0, 0.25, 0]} castShadow>
+      <mesh position={[0, 0.25, 0]}>
         <sphereGeometry args={[0.15, 16, 16]} />
         <meshStandardMaterial
           color={COLORS.lantern.paper}
@@ -44,7 +44,7 @@ export const Lantern: React.FC<LanternProps> = ({
       </mesh>
 
       {/* 下部の枠 */}
-      <mesh position={[0, 0.05, 0]} castShadow>
+      <mesh position={[0, 0.05, 0]}>
         <cylinderGeometry args={[0.1, 0.08, 0.05, 16]} />
         <meshStandardMaterial color={COLORS.lantern.frame} />
       </mesh>
