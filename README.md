@@ -1,5 +1,7 @@
 # 🎍 ゆっくり過ごせる場所
 
+![サムネイル](public/thumbnail.png)
+
 ![XRift World](https://img.shields.io/badge/XRift-World-blue)
 ![React Three Fiber](https://img.shields.io/badge/React_Three_Fiber-v9.4-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
